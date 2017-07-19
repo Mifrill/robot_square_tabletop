@@ -1,0 +1,29 @@
+{
+  "commands":[
+    "PLACE 0,0,FACING",
+    "MOVE",
+    "LEFT",
+    "RIGHT",
+    "REPORT"
+  ],
+  "inputs":{
+    "a": [
+      "PLACE 0,0,NORTH",
+      "MOVE",
+      "REPORT"
+    ],
+    "b": [
+      "PLACE 0,0,NORTH",
+      "LEFT",
+      "REPORT"
+    ],
+    "c": [
+      "PLACE 1,2,EAST",
+      "MOVE",
+      "MOVE",
+      "LEFT",
+      "MOVE",
+      "REPORT"
+    ]
+  }
+}
