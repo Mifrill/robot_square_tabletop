@@ -1,0 +1,9 @@
+AllCops:
+  Excludes:
+    - config/**
+Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/SymbolArray:
+  EnforcedStyle: brackets
