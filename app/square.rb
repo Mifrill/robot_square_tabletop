@@ -21,15 +21,15 @@ module Robot
     end
 
     def move
-      puts @move
+      @move
     end
 
     def left
-      puts @left
+      @left
     end
 
     def right
-      puts @right
+      @right
     end
   end
 end
