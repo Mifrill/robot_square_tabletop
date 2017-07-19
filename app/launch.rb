@@ -7,4 +7,4 @@ report.move
 report.left
 report.right
 report.report
-#report.settings
+report.settings

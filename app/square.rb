@@ -2,23 +2,18 @@ require_relative 'app'
 
 module Robot
   class Square < Table
-    def settings
-      config
-      @data['commands'].each do |command|
-        instance_variable_set("@#{command}".downcase.split(' ')[0], "#{command}")
-      end
-    end
-
     def place
-      def args(var, num)
-        instance_variable_set("@#{var}", "#{@place.split(' ')[1].split(',')[num]}")
+      class << self
+        def args(var, num)
+          instance_variable_set("@#{var}", (@place.split(' ')[1].split(',')[num]).to_s)
+        end
       end
 
       puts @place
 
-      args("x", 0)
-      args("y", 1)
-      args("facing", 2)
+      args('x', 0)
+      args('y', 1)
+      args('facing', 2)
 
       puts @x
       puts @y

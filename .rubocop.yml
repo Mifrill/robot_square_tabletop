@@ -7,3 +7,7 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 Style/SymbolArray:
   EnforcedStyle: brackets
+Metrics/LineLength:
+  Max: 120
+Metrics/MethodLength:
+  Max: 20
