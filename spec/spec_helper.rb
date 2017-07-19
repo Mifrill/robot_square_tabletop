@@ -3,10 +3,7 @@ end
 
 if ENV['ROBOT_ENV'] == 'test'
   require 'simplecov'
-  SimpleCov.start do
-    use_merging true
-    add_group 'app', 'app/app'
-  end
+  SimpleCov.start
   puts 'required simplecov'
 end
 

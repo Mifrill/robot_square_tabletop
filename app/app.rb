@@ -1,15 +1,6 @@
 require './config/settings'
-require_relative 'square'
+require_relative 'table'
+require_relative 'robot'
 
-module Robot
-  class Table
-    def action
-      settings
-      puts self
-    end
-
-    def report
-      puts @report
-    end
-  end
-end
+robot = Toy::Robot.new
+puts robot.limit
