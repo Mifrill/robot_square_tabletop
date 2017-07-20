@@ -39,12 +39,14 @@ describe 'Table Square' do
 
       it 'returns false' do
         table.place(-1, -1)
+
         expect(table.placed?).to be false
       end
     end
 
     it 'after a valid placement returns true' do
       table.place(2, 4)
+
       expect(table.placed?).to be true
     end
   end
@@ -57,12 +59,14 @@ describe 'Table Square' do
 
       it 'returns nil' do
         table.place(-1, -1)
+
         expect(table.position).to be_nil
       end
     end
 
     it 'after a valid placement returns the coordinates' do
       table.place(0, 0)
+
       expect(table.position).to eq(x: 0, y: 0)
     end
   end

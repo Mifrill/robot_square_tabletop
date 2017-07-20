@@ -5,7 +5,7 @@ module Toy
     attr_accessor :direction
 
     def orientation(direction)
-      Toy.config['place'].collect { |x| x.downcase.to_sym }.include?(direction) ? (self.direction = direction) : nil
+      Toy.config['facing'].collect { |x| x.downcase.to_sym }.include?(direction) ? (self.direction = direction) : nil
     end
 
     def initialize
@@ -36,11 +36,11 @@ module Toy
     end
 
     def turn_left
-      puts self
+      self.direction = { north: :west, west: :south, south: :east, east: :north }[direction]
     end
 
     def turn_right
-      puts self
+      self.direction = { north: :east, west: :north, south: :west, east: :south }[direction]
     end
   end
 end

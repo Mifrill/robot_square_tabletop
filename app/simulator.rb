@@ -18,7 +18,7 @@ module Toy
 
       case command
       when truthy_command(command)
-        send(command.downcase)
+        send(command.downcase, args)
       else
         "Invalid command #{command} -- ignore that --"
       end
@@ -30,20 +30,24 @@ module Toy
       Toy.config['commands'].include?(command) ? (self.command = command) : nil
     end
 
-    def move
+    def place(args)
+      args
+    end
+
+    def move(_arg = nil)
       position = @table.position
       position
     end
 
-    def left
+    def left(_arg = nil)
       @robot.turn_left
     end
 
-    def right
+    def right(_arg = nil)
       @robot.turn_right
     end
 
-    def report
+    def report(_arg = nil)
       position = @table.position
       direction = @robot.direction
 
