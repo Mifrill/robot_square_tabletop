@@ -1,0 +1,16 @@
+{
+  "commands":[
+    "PLACE",
+    "MOVE",
+    "LEFT",
+    "RIGHT",
+    "REPORT"
+  ],
+  "place": [
+    "NORTH",
+    "SOUTH",
+    "EAST",
+    "WEST"
+  ],
+  "units": "5"
+}

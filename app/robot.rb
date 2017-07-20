@@ -11,7 +11,6 @@ module Toy
         end
       end
       settings
-      @table = Table::Square.new
     end
 
     def limit

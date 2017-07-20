@@ -10,4 +10,6 @@ Style/SymbolArray:
 Metrics/LineLength:
   Max: 120
 Metrics/MethodLength:
-  Max: 20
+  Max: 25
+Metrics/AbcSize:
+  Enabled: false

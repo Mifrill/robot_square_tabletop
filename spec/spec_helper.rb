@@ -7,4 +7,4 @@ if ENV['ROBOT_ENV'] == 'test'
   puts 'required simplecov'
 end
 
-require './app/app'
+require './app/simulator'

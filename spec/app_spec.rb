@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Toy::Robot do
-  let!(:robot) { Toy::Robot.new }
+describe Toy::Simulator do
+  let!(:robot) { Toy::Simulator.new }
 
   it 'initialize' do
     expect(robot.move).to eq('MOVE')

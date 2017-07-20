@@ -3,7 +3,7 @@ require 'json'
 
 module Toy
   def config
-    JSON.parse(File.read './data.json')
+    JSON.parse(File.read './settings.json')
   end
 
   module_function :config

@@ -1,13 +1,5 @@
 {
-  "commands":[
-    "PLACE 0,0,FACING",
-    "MOVE",
-    "LEFT",
-    "RIGHT",
-    "REPORT"
-  ],
-  "units": "5",
-  "inputs":{
+  "inputs": {
     "a": [
       "PLACE 0,0,NORTH",
       "MOVE",

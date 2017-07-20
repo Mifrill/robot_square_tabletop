@@ -1,6 +1,10 @@
-require './config/settings'
-require_relative 'table'
-require_relative 'robot'
+require_relative 'simulator'
 
-robot = Toy::Robot.new
-puts robot.limit
+simulator = Toy::Simulator.new
+
+command = STDIN.gets
+while command
+  output = simulator.execute(command)
+  puts output if output
+  command = STDIN.gets
+end
