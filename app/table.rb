@@ -2,26 +2,32 @@ require_relative 'robot'
 
 module Toy
   class Table
-    def limit
-      Toy.config['units']
+    class Square < Table
+      def initialize
+        units
+      end
+
+      private
+
+      def units
+        @limit = (Toy.config['units'].to_f - 1)
+      end
     end
 
-    class Square < Table
-      def min_x
-        puts self
-      end
+    attr_accessor :position
 
-      def max_x
-        puts self
-      end
+    def place(x, y)
+      self.position = { x: x, y: y } if valid_coordinates?(x, y)
+    end
 
-      def min_y
-        puts self
-      end
+    def placed?
+      position != nil
+    end
 
-      def max_y
-        puts self
-      end
+    private
+
+    def valid_coordinates?(x, y)
+      (x >= 0 && x <= @limit && y >= 0 && y <= @limit)
     end
   end
 end

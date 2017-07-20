@@ -1,6 +1,3 @@
-RSpec.configuration do |config|
-end
-
 if ENV['ROBOT_ENV'] == 'test'
   require 'simplecov'
   SimpleCov.start
@@ -8,3 +5,7 @@ if ENV['ROBOT_ENV'] == 'test'
 end
 
 require './app/simulator'
+
+RSpec.configure do |config|
+  config.filter_run_when_matching :focus
+end

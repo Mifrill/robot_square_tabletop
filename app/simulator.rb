@@ -35,5 +35,12 @@ module Toy
         "Invalid command #{command} -- ignore that --"
       end
     end
+
+    private
+
+    def move
+      position = @table.position
+      puts position
+    end
   end
 end
