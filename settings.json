@@ -13,5 +13,6 @@
     "EAST",
     "WEST"
   ],
-  "units": "5"
+  "units": "5",
+  "step": "1"
 }

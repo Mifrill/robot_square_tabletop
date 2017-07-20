@@ -29,41 +29,77 @@ describe 'Robot' do
 
   scenario = <<~HEREDOC
     Given robot is on directed to the some side of the world
-    When he getting command: "turn_right"
-    Then robot direction will be changed by right side of the world
+    When he getting command: "turn_right"/"turn_left"
+    Then robot direction will be changed by right/left side of the world
   HEREDOC
 
   describe scenario do
-    it 'north -> east' do
-      robot.orientation(:north)
+    context 'Right side' do
+      it 'north -> east' do
+        robot.orientation(:north)
 
-      robot.turn_right
+        robot.turn_right
 
-      expect(robot.direction).to eq(:east)
+        expect(robot.direction).to eq(:east)
+      end
+
+      it 'south -> west' do
+        robot.orientation(:south)
+
+        robot.turn_right
+
+        expect(robot.direction).to eq(:west)
+      end
+
+      it 'west -> north' do
+        robot.orientation(:west)
+
+        robot.turn_right
+
+        expect(robot.direction).to eq(:north)
+      end
+
+      it 'east -> south' do
+        robot.orientation(:east)
+
+        robot.turn_right
+
+        expect(robot.direction).to eq(:south)
+      end
     end
 
-    it 'south -> west' do
-      robot.orientation(:south)
+    context 'Left side' do
+      it 'north -> east' do
+        robot.orientation(:north)
 
-      robot.turn_right
+        robot.turn_left
 
-      expect(robot.direction).to eq(:west)
-    end
+        expect(robot.direction).to eq(:west)
+      end
 
-    it 'west -> north' do
-      robot.orientation(:west)
+      it 'south -> west' do
+        robot.orientation(:south)
 
-      robot.turn_right
+        robot.turn_left
 
-      expect(robot.direction).to eq(:north)
-    end
+        expect(robot.direction).to eq(:east)
+      end
 
-    it 'east -> south' do
-      robot.orientation(:east)
+      it 'west -> north' do
+        robot.orientation(:west)
 
-      robot.turn_right
+        robot.turn_left
 
-      expect(robot.direction).to eq(:south)
+        expect(robot.direction).to eq(:south)
+      end
+
+      it 'east -> south' do
+        robot.orientation(:east)
+
+        robot.turn_left
+
+        expect(robot.direction).to eq(:north)
+      end
     end
   end
 end

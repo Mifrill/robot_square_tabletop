@@ -1,5 +1,3 @@
-require_relative 'robot'
-
 module Toy
   class Table
     attr_accessor :position
