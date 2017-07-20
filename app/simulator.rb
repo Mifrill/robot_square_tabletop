@@ -4,6 +4,8 @@ require_relative 'robot'
 
 module Toy
   class Simulator
+    attr_accessor :command
+
     def initialize
       @robot = Toy::Robot.new
       @table = Toy::Table::Square.new
@@ -13,24 +15,10 @@ module Toy
       input = input.split(/\s+/)
       command = input.first
       args = input.last
-      true_command = Toy.config['commands']
 
       case command
-      when true_command[0]
-        puts "execute command: #{true_command[0]}"
-        place(args)
-      when true_command[1]
-        puts "execute command: #{true_command[1]}"
-        move
-      when true_command[2]
-        puts "execute command: #{true_command[2]}"
-        left
-      when true_command[3]
-        puts "execute command: #{true_command[3]}"
-        right
-      when true_command[4]
-        puts "execute command: #{true_command[4]}"
-        report
+      when truthy_command(command)
+        send(command.downcase)
       else
         "Invalid command #{command} -- ignore that --"
       end
@@ -38,9 +26,13 @@ module Toy
 
     private
 
+    def truthy_command(command)
+      Toy.config['commands'].include?(command) ? (self.command = command) : nil
+    end
+
     def move
       position = @table.position
-      puts position
+      position
     end
 
     def left
