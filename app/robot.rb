@@ -2,6 +2,12 @@ require_relative 'table'
 
 module Toy
   class Robot
+    attr_accessor :direction
+
+    def orientation(direction)
+      puts direction
+    end
+
     def initialize
       class << self
         def settings
@@ -11,10 +17,6 @@ module Toy
         end
       end
       settings
-    end
-
-    def limit
-      @table.limit
     end
 
     def place
@@ -33,12 +35,12 @@ module Toy
       place << @x << @y << @facing
     end
 
-    attr_reader :move
+    def turn_left
+      puts self
+    end
 
-    attr_reader :left
-
-    attr_reader :right
-
-    attr_reader :report
+    def turn_right
+      puts self
+    end
   end
 end

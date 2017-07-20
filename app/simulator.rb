@@ -42,5 +42,20 @@ module Toy
       position = @table.position
       puts position
     end
+
+    def left
+      @robot.turn_left
+    end
+
+    def right
+      @robot.turn_right
+    end
+
+    def report
+      position = @table.position
+      direction = @robot.direction
+
+      "#{position[:x]},#{position[:y]},#{direction.to_s.upcase}"
+    end
   end
 end

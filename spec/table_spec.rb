@@ -9,7 +9,7 @@ describe 'Table Square' do
     end
 
     context 'placement is denied if:' do
-      context 'X' do
+      context 'coordinate X' do
         it '< 0' do
           expect(table.place(-1, 0)).to be_nil
         end
@@ -19,7 +19,7 @@ describe 'Table Square' do
         end
       end
 
-      context 'Y' do
+      context 'coordinate Y' do
         it '< 0' do
           expect(table.place(0, -1)).to be_nil
         end
@@ -37,7 +37,7 @@ describe 'Table Square' do
         expect(table.placed?).to be false
       end
 
-      it 'return false' do
+      it 'returns false' do
         table.place(-1, -1)
         expect(table.placed?).to be false
       end
@@ -55,7 +55,7 @@ describe 'Table Square' do
         expect(table.position).to be_nil
       end
 
-      it 'return nil' do
+      it 'returns nil' do
         table.place(-1, -1)
         expect(table.position).to be_nil
       end
