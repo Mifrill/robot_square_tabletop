@@ -127,5 +127,11 @@ describe 'Robot' do
 
       expect(robot.step).to eq(x: 1, y: 0)
     end
+
+    it 'Raise error when unknown direction' do
+      robot.orientation(:some_direction)
+
+      expect { robot.step }.to raise_error(RuntimeError, 'Unknown direction')
+    end
   end
 end

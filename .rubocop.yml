@@ -14,4 +14,4 @@ Metrics/MethodLength:
 Metrics/AbcSize:
   Enabled: false
 Metrics/BlockLength:
-  Max: 90
+  Max: 100

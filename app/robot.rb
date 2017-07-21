@@ -24,6 +24,8 @@ module Toy
         { x: -1, y: 0 }
       when :east
         { x: 1, y: 0 }
+      else
+        raise 'Unknown direction'
       end
     end
   end
