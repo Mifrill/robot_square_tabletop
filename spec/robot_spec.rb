@@ -104,22 +104,24 @@ describe 'Robot' do
   end
 
   describe 'Step' do
+    let(:step) { Toy.config['step'].to_f }
+
     it 'facing north -> moves up' do
       robot.orientation(:north)
 
-      expect(robot.step).to eq(x: 0, y: 1)
+      expect(robot.step).to eq(x: 0, y: step)
     end
 
     it 'facing south -> moves down' do
       robot.orientation(:south)
 
-      expect(robot.step).to eq(x: 0, y: -1)
+      expect(robot.step).to eq(x: 0, y: -step)
     end
 
     it 'facing west -> moves left' do
       robot.orientation(:west)
 
-      expect(robot.step).to eq(x: -1, y: 0)
+      expect(robot.step).to eq(x: -step, y: 0)
     end
 
     it 'facing east -> moves right' do

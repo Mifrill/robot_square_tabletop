@@ -1,11 +1,8 @@
 require 'spec_helper'
+# require './app/app'
 
-describe Toy::Simulator do
-  let!(:robot) { Toy::Simulator.new }
+describe Toy do
+  let(:simulator) { Toy::Simulator.new }
 
-  it 'initialize' do
-    # expect(robot.move).to eq('MOVE')
-    # expect(robot.limit).to eq('5')
-    # expect(robot.place).to match_array(%w[0 0 FACING])
-  end
+  it 'STDIN'
 end
