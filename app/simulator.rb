@@ -20,7 +20,7 @@ module Toy
       when truthy_command(command)
         send(command.downcase, args)
       else
-        "Invalid command #{command} -- ignore that --"
+        "Invalid command #{command}"
       end
     end
 
@@ -35,8 +35,9 @@ module Toy
     end
 
     def move(_arg = nil)
+      step = @robot.step
       position = @table.position
-      position
+      @table.place(position[:x] + step[:x], position[:y] + step[:y]) ? 'Movement implemented' : 'out of table'
     end
 
     def left(_arg = nil)

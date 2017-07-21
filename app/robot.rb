@@ -15,15 +15,16 @@ module Toy
     end
 
     def step
+      step = Toy.config['step'].to_i
       case direction
       when :north
-        { x: 0, y: 1 }
+        { x: 0, y: step }
       when :south
-        { x: 0, y: -1 }
+        { x: 0, y: -step }
       when :west
-        { x: -1, y: 0 }
+        { x: -step, y: 0 }
       when :east
-        { x: 1, y: 0 }
+        { x: step, y: 0 }
       else
         raise 'Unknown direction'
       end

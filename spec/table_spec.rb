@@ -4,10 +4,6 @@ describe 'Table Square' do
   let(:table) { Toy::Table::Square.new }
 
   describe 'place' do
-    it 'allows placement' do
-      expect(table.place(0, 0)).not_to be_nil
-    end
-
     context 'placement is denied if:' do
       context 'coordinate X' do
         it '< 0' do
