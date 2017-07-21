@@ -5,22 +5,12 @@ describe 'Table Square' do
 
   describe 'place' do
     context 'placement is denied if:' do
-      context 'coordinate X' do
-        it '< 0' do
+      context 'coordinate X/Y' do
+        it 'more 4 or less 0' do
           expect(table.place(-1, 0)).to be_nil
-        end
-
-        it '> 4' do
           expect(table.place(5, 0)).to be_nil
-        end
-      end
 
-      context 'coordinate Y' do
-        it '< 0' do
           expect(table.place(0, -1)).to be_nil
-        end
-
-        it '> 4' do
           expect(table.place(0, 5)).to be_nil
         end
       end
