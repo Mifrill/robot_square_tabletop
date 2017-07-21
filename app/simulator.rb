@@ -7,8 +7,8 @@ module Toy
     attr_accessor :command
 
     def initialize
-      @robot = Toy::Robot.new
       @table = Toy::Table::Square.new
+      @robot = Toy::Robot.new
     end
 
     def execute(input)

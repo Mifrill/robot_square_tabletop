@@ -15,7 +15,16 @@ module Toy
     end
 
     def step
-      puts self
+      case direction
+      when :north
+        { x: 0, y: 1 }
+      when :south
+        { x: 0, y: -1 }
+      when :west
+        { x: -1, y: 0 }
+      when :east
+        { x: 1, y: 0 }
+      end
     end
   end
 end

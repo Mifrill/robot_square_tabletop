@@ -102,4 +102,30 @@ describe 'Robot' do
       end
     end
   end
+
+  describe 'Step' do
+    it 'facing north -> moves up' do
+      robot.orientation(:north)
+
+      expect(robot.step).to eq(x: 0, y: 1)
+    end
+
+    it 'facing south -> moves down' do
+      robot.orientation(:south)
+
+      expect(robot.step).to eq(x: 0, y: -1)
+    end
+
+    it 'facing west -> moves left' do
+      robot.orientation(:west)
+
+      expect(robot.step).to eq(x: -1, y: 0)
+    end
+
+    it 'facing east -> moves right' do
+      robot.orientation(:east)
+
+      expect(robot.step).to eq(x: 1, y: 0)
+    end
+  end
 end
