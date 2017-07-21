@@ -1,3 +1,9 @@
+[![Build Status](https://travis-ci.org/Mifrill/abak.svg?branch=master)](https://travis-ci.org/Mifrill/robot_square_tabletop)
+[![Build status](https://ci.appveyor.com/api/projects/status/bn0sripeuppeadt7?svg=true)](https://ci.appveyor.com/project/Mifrill/robot-square-tabletop)
+[![Quality](http://img.shields.io/codeclimate/github/Mifrill/robot_square_tabletop.svg)](https://codeclimate.com/github/Mifrill/robot_square_tabletop)
+[![Coverage Status](https://img.shields.io/codeclimate/coverage/github/Mifrill/robot_square_tabletop.svg)](https://codeclimate.com/github/mifrill/robot_square_tabletop)
+[![codecov](https://codecov.io/gh/Mifrill/robot_square_tabletop/branch/master/graph/badge.svg)](https://codecov.io/gh/Mifrill/robot_square_tabletop)
+
 # Toy Robot Simulator
 ### Description:
 The application is a simulation of a toy robot moving on a square tabletop, of dimensions 5
