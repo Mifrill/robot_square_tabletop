@@ -6,7 +6,6 @@
     "RIGHT",
     "REPORT"
   ],
-  "place_format": "X, Y, FACING",
   "facing": [
     "NORTH",
     "SOUTH",

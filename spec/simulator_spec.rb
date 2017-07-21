@@ -6,7 +6,10 @@ describe 'Simulator' do
   let(:robot) { simulator.instance_variable_get(:@robot) }
 
   it 'truthy_command' do
-    expect(simulator.send(:truthy_command, 'MOVE')).to eq('MOVE')
+    truthy_command = Toy.config['commands']
+    truthy_command.each do |command|
+      expect(simulator.send(:truthy_command, command)).to eq(command)
+    end
   end
 
   describe 'REPORT' do
