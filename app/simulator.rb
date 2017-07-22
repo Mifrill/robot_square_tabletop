@@ -9,6 +9,7 @@ module Toy
     def initialize
       @table = Toy::Table::Square.new
       @robot = Toy::Robot.new
+      puts 'Hello, i am Toy Robot Simulator'
     end
 
     def execute(input)

@@ -19,6 +19,8 @@
     "invalid_command": "Invalid command",
     "invalid_arguments": "Invalid arguments",
     "place_failed": "Robot must be placed",
-    "unknown_direction": "Unknown direction"
+    "unknown_direction": "Unknown direction",
+    "done": "Mission complete",
+    "file": "execute commands from file:"
   }
 }
