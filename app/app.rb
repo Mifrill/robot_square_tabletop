@@ -4,7 +4,7 @@ simulator = Toy::Simulator.new
 
 if ARGV[0] == 'file'
   puts "#{Toy.config['system_messages']['file']} #{ARGV[1]}"
-  inputs = JSON.parse(File.read ARGV[1])
+  inputs = JSON.parse(File.read(ARGV[1]))
   inputs.each do |input|
     input.drop(1).each do |commands|
       commands.each do |command|

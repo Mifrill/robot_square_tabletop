@@ -69,3 +69,16 @@ It is not required to provide any graphical output showing the movement of the t
 * Think about the problem and be ensure you are able to discuss your solution
 * We are going to ask you to pair with us and make some simple changes to your robot solution
 * Be wary of over-complicating things, but don't be afraid to show us your skills ;)
+
+##Running
+```
+    sudo chmod 777 bin/start
+    
+    #input command by hand
+    bin/start 
+    
+      or
+      
+    #command list from file    
+    bin/start file example.json #
+```
