@@ -26,7 +26,7 @@ module Toy
       when :east
         { x: step, y: 0 }
       else
-        raise 'Unknown direction'
+        raise Toy.config['system_messages']['unknown_direction']
       end
     end
   end

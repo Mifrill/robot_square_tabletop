@@ -20,7 +20,7 @@ module Toy
       when truthy_command(command)
         send(command.downcase, args)
       else
-        "Invalid command #{command}"
+        "#{Toy.config['system_messages']['invalid_command']} #{command}"
       end
     end
 
@@ -34,16 +34,19 @@ module Toy
       args = args.split(',')
       x = args[0].to_i
       y = args[1].to_i
-      direction = args[2].downcase.to_sym
-      unless @robot.orientation(direction) && @table.place(x, y)
-        return 'invalid arguments'
+      begin
+        direction = args[2].downcase.to_sym
+        raise unless @robot.orientation(direction) && @table.place(x, y)
+        Toy.config['system_messages']['place_success']
+      rescue
+        Toy.config['system_messages']['invalid_arguments']
       end
-      'Robot has been placed'
     end
 
     def move(_args = nil)
-      step = @robot.step
+      return Toy.config['system_messages']['place_failed'] unless @table.placed?
       position = @table.position
+      step = @robot.step
       @table.place(position[:x] + step[:x], position[:y] + step[:y]) ? 'Movement implemented' : 'out of table'
     end
 
@@ -56,6 +59,7 @@ module Toy
     end
 
     def report(_args = nil)
+      return Toy.config['system_messages']['place_failed'] unless @table.placed?
       position = @table.position
       direction = @robot.direction
 

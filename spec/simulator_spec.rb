@@ -66,7 +66,7 @@ describe 'Simulator' do
     end
 
     it 'Robot is not placed if invalid arguments' do
-      expect(simulator.execute('PLACE (0,0,west)')).to eq('invalid arguments')
+      expect(simulator.execute('PLACE (0,0,west)')).to eq('Invalid arguments')
     end
   end
 

@@ -69,7 +69,7 @@ describe 'Robot' do
     end
 
     context 'Left side' do
-      it 'north -> east' do
+      it 'south -> east' do
         robot.orientation(:south)
 
         robot.turn_left
@@ -77,7 +77,7 @@ describe 'Robot' do
         expect(robot.direction).to eq(:east)
       end
 
-      it 'south -> west' do
+      it 'north -> west' do
         robot.orientation(:north)
 
         robot.turn_left
@@ -85,7 +85,7 @@ describe 'Robot' do
         expect(robot.direction).to eq(:west)
       end
 
-      it 'west -> north' do
+      it 'west -> south' do
         robot.orientation(:west)
 
         robot.turn_left
@@ -93,7 +93,7 @@ describe 'Robot' do
         expect(robot.direction).to eq(:south)
       end
 
-      it 'east -> south' do
+      it 'west -> south' do
         robot.orientation(:west)
 
         robot.turn_left
