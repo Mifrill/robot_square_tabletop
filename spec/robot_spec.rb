@@ -133,7 +133,7 @@ describe 'Robot' do
     it 'Raise error when unknown direction' do
       robot.orientation(:some_direction)
 
-      expect { robot.step }.to raise_error(RuntimeError, 'Unknown direction')
+      expect { robot.step }.to raise_error(RuntimeError, Toy.config['system_messages']['unknown_direction'])
     end
   end
 end

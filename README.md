@@ -81,5 +81,5 @@ It is not required to provide any graphical output showing the movement of the t
       or
       
     #command list from file    
-    bin/start file example.json #
+    bin/start file example.json
 ```
