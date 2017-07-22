@@ -1,4 +1,4 @@
-require './config/settings'
+require './config/application'
 require_relative 'table'
 require_relative 'robot'
 
@@ -13,6 +13,8 @@ module Toy
     end
 
     def execute(input)
+      return if input.strip.empty?
+
       input = input.split(/\s+/)
       command = input.first
       args = input.last

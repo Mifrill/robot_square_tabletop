@@ -1,8 +1,8 @@
 require 'spec_helper'
-# require './app/app'
+require './app/app'
 
 describe Toy do
-  let(:simulator) { Toy::Simulator.new }
-
-  it 'STDIN'
+  it 'Execute from file' do
+    expect(Toy.execute_from_file('./example.json')).to eq(Toy.config['system_messages']['done'])
+  end
 end

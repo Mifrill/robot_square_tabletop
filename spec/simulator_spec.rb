@@ -75,5 +75,18 @@ describe 'Simulator' do
       command = 'some_command'
       expect(simulator.execute(command)).to eq("Invalid command #{command}")
     end
+
+    it 'Space handler (empty input)' do
+      expect(simulator.execute(' ')).to be_nil
+    end
+
+    context 'until robot is placed' do
+      it 'MOVE return place failed' do
+        expect(simulator.execute('MOVE')).to eq(Toy.config['system_messages']['place_failed'])
+        expect(simulator.execute('REPORT')).to eq(Toy.config['system_messages']['place_failed'])
+        expect(simulator.execute('LEFT')).to be_nil
+        expect(simulator.execute('RIGHT')).to be_nil
+      end
+    end
   end
 end
