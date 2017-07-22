@@ -3,6 +3,7 @@
 [![Quality](http://img.shields.io/codeclimate/github/Mifrill/robot_square_tabletop.svg)](https://codeclimate.com/github/Mifrill/robot_square_tabletop)
 [![Coverage Status](https://img.shields.io/codeclimate/coverage/github/Mifrill/robot_square_tabletop.svg)](https://codeclimate.com/github/mifrill/robot_square_tabletop)
 [![codecov](https://codecov.io/gh/Mifrill/robot_square_tabletop/branch/master/graph/badge.svg)](https://codecov.io/gh/Mifrill/robot_square_tabletop)
+[![Inline docs](http://inch-ci.org/github/Mifrill/robot_square_tabletop.svg?branch=master)](http://inch-ci.org/github/Mifrill/robot_square_tabletop)
 
 # Toy Robot Simulator
 ### Description:
@@ -70,7 +71,7 @@ It is not required to provide any graphical output showing the movement of the t
 * We are going to ask you to pair with us and make some simple changes to your robot solution
 * Be wary of over-complicating things, but don't be afraid to show us your skills ;)
 
-##Running
+## Running
 ```
     sudo chmod 777 bin/start
     
