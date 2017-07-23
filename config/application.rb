@@ -42,5 +42,4 @@ module Toy
   module_function :execute_by_hand
 
   SYSTEM_COMMAND = Toy.config['system_messages']
-  PLACE_FAILED = SYSTEM_COMMAND['place_failed']
 end

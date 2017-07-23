@@ -69,5 +69,7 @@ module Toy
 
       "#{position[:x]},#{position[:y]},#{direction.to_s.upcase}"
     end
+
+    PLACE_FAILED = SYSTEM_COMMAND['place_failed']
   end
 end
