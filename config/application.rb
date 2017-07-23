@@ -41,5 +41,5 @@ module Toy
   module_function :execute_from_file
   module_function :execute_by_hand
 
-  SYSTEM_COMMAND = Toy.config['system_messages']
+  SYSTEM_MESSAGES = Toy.config['system_messages']
 end

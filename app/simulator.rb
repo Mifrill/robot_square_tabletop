@@ -5,6 +5,7 @@ require_relative 'robot'
 module Toy
   class Simulator
     attr_accessor :command
+    PLACE_FAILED = SYSTEM_MESSAGES['place_failed']
 
     def initialize
       @table = Toy::Table::Square.new
@@ -22,7 +23,7 @@ module Toy
       when truthy_command(command)
         send(command.downcase, args)
       else
-        "#{SYSTEM_COMMAND['invalid_command']} #{command}"
+        "#{SYSTEM_MESSAGES['invalid_command']} #{command}"
       end
     end
 
@@ -39,9 +40,9 @@ module Toy
       begin
         direction = args[2].downcase.to_sym
         raise unless @robot.orientation(direction) && @table.place(x, y)
-        SYSTEM_COMMAND['place_success']
+        SYSTEM_MESSAGES['place_success']
       rescue
-        SYSTEM_COMMAND['invalid_arguments']
+        SYSTEM_MESSAGES['invalid_arguments']
       end
     end
 
@@ -49,7 +50,7 @@ module Toy
       return PLACE_FAILED unless @table.placed?
       position = @table.position
       step = @robot.step
-      @table.place(position[:x] + step[:x], position[:y] + step[:y]) ? SYSTEM_COMMAND['move_success'] : SYSTEM_COMMAND['move_failed']
+      @table.place(position[:x] + step[:x], position[:y] + step[:y]) ? SYSTEM_MESSAGES['move_success'] : SYSTEM_MESSAGES['move_failed']
     end
 
     def left(_args = nil)
@@ -69,7 +70,5 @@ module Toy
 
       "#{position[:x]},#{position[:y]},#{direction.to_s.upcase}"
     end
-
-    PLACE_FAILED = SYSTEM_COMMAND['place_failed']
   end
 end
