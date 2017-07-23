@@ -3,7 +3,7 @@ Documentation:
 Style/FrozenStringLiteralComment:
   Enabled: false
 Metrics/LineLength:
-  Max: 120
+  Max: 135
 Metrics/MethodLength:
   Max: 15
 Metrics/AbcSize:

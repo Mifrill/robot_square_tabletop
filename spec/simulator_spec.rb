@@ -73,7 +73,7 @@ describe Toy::Simulator do
   describe 'Exceptions' do
     it 'Some invalid command' do
       command = 'some_command'
-      expect(simulator.execute(command)).to eq("Invalid command #{command}")
+      expect(simulator.execute(command)).to eq("#{Toy.config['system_messages']['invalid_command']} #{command}")
     end
 
     it 'Space handler (empty input)' do

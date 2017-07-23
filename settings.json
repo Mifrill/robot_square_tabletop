@@ -22,6 +22,8 @@
     "place_failed": "Robot must be placed",
     "unknown_direction": "Unknown direction",
     "done": "Mission complete",
+    "move_success": "Movement implemented",
+    "move_failed": "out of table",
     "file": "execute commands from file:"
   }
 }
