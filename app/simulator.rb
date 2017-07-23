@@ -46,26 +46,30 @@ module Toy
     end
 
     def move(_args = nil)
-      return Toy.config['system_messages']['place_failed'] unless @table.placed?
+      return PLACE_FAILED unless @table.placed?
       position = @table.position
       step = @robot.step
       @table.place(position[:x] + step[:x], position[:y] + step[:y]) ? 'Movement implemented' : 'out of table'
     end
 
     def left(_args = nil)
+      return PLACE_FAILED unless @table.placed?
       @robot.turn_left
     end
 
     def right(_args = nil)
+      return PLACE_FAILED unless @table.placed?
       @robot.turn_right
     end
 
     def report(_args = nil)
-      return Toy.config['system_messages']['place_failed'] unless @table.placed?
+      return PLACE_FAILED unless @table.placed?
       position = @table.position
       direction = @robot.direction
 
       "#{position[:x]},#{position[:y]},#{direction.to_s.upcase}"
     end
+
+    PLACE_FAILED = Toy.config['system_messages']['place_failed']
   end
 end

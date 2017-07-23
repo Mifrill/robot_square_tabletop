@@ -1,4 +1,5 @@
 require 'rubygems'
+require 'json'
 
 module Toy
   def config

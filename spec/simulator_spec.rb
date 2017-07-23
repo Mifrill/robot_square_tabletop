@@ -80,12 +80,9 @@ describe Toy::Simulator do
       expect(simulator.execute(' ')).to be_nil
     end
 
-    context 'until robot is placed' do
-      it 'MOVE return place failed' do
-        expect(simulator.execute('MOVE')).to eq(Toy.config['system_messages']['place_failed'])
-        expect(simulator.execute('REPORT')).to eq(Toy.config['system_messages']['place_failed'])
-        expect(simulator.execute('LEFT')).to be_nil
-        expect(simulator.execute('RIGHT')).to be_nil
+    it 'Robot ignore commands until is placed' do
+      Toy.config['commands'].drop(1).each do |command|
+        expect(simulator.execute(command)).to  eq(Toy.config['system_messages']['place_failed'])
       end
     end
   end
