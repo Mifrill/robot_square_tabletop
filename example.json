@@ -23,12 +23,13 @@
     "LEFT",
     "RIGHT",
     "PLACE 1,2,EAST",
+    "something",
     "REPORT",
     "PLACE 1,4,EAST",
     "REPORT",
     "MOVE",
     "MOVE",
     "PLACE 1,2,NORTH",
-    "REPORT"
+    " REPORT"
   ]
 }

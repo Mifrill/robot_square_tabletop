@@ -9,13 +9,12 @@ module Toy
     def initialize
       @table = Toy::Table::Square.new
       @robot = Toy::Robot.new
-      puts 'Hello, i am Toy Robot Simulator'
     end
 
     def execute(input)
       return if input.strip.empty?
 
-      input = input.split(/\s+/)
+      input = input.strip.split(/\s+/)
       command = input.first
       args = input.last
 

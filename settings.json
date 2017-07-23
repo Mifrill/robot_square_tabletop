@@ -15,6 +15,7 @@
   "units": "5",
   "step": "1",
   "system_messages": {
+    "hello": "Hello, i am Toy Robot Simulator",
     "place_success": "Robot has been placed",
     "invalid_command": "Invalid command",
     "invalid_arguments": "Invalid arguments",
