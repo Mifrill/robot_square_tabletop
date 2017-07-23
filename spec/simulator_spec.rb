@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Simulator' do
+describe Toy::Simulator do
   let(:simulator) { Toy::Simulator.new }
   let(:table) { simulator.instance_variable_get(:@table) }
   let(:robot) { simulator.instance_variable_get(:@robot) }
@@ -12,12 +12,14 @@ describe 'Simulator' do
     end
   end
 
-  describe 'REPORT' do
-    it 'returns the result in specified format' do
-      allow(table).to receive(:position).and_return(x: 2, y: 3)
-      allow(robot).to receive(:direction).and_return(:south)
+  describe 'PLACE' do
+    it 'Robot is placed' do
+      simulator.execute('PLACE 0,0,NORTH')
+      expect(simulator.execute('REPORT')).to eq('0,0,NORTH')
+    end
 
-      expect(simulator.execute('REPORT')).to eq('2,3,SOUTH')
+    it 'Robot is not placed if invalid arguments' do
+      expect(simulator.execute('PLACE (0,0,west)')).to eq('Invalid arguments')
     end
   end
 
@@ -59,14 +61,12 @@ describe 'Simulator' do
     end
   end
 
-  describe 'PLACE' do
-    it 'Robot is placed' do
-      simulator.execute('PLACE 0,0,NORTH')
-      expect(simulator.execute('REPORT')).to eq('0,0,NORTH')
-    end
+  describe 'REPORT' do
+    it 'returns the result in specified format' do
+      allow(table).to receive(:position).and_return(x: 2, y: 3)
+      allow(robot).to receive(:direction).and_return(:south)
 
-    it 'Robot is not placed if invalid arguments' do
-      expect(simulator.execute('PLACE (0,0,west)')).to eq('Invalid arguments')
+      expect(simulator.execute('REPORT')).to eq('2,3,SOUTH')
     end
   end
 

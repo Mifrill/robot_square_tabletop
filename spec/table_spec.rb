@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Table Square' do
+describe Toy::Table::Square do
   let(:table) { Toy::Table::Square.new }
 
   describe 'place' do

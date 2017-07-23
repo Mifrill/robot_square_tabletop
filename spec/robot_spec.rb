@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Robot' do
+describe Toy::Robot do
   let(:robot) { Toy::Robot.new }
 
   describe 'orientation' do
@@ -34,11 +34,13 @@ describe 'Robot' do
   HEREDOC
 
   describe scenario do
-    context 'Right side' do
+    context 'Turn right' do
+      let(:right) { robot.turn_right }
+
       it 'north -> east' do
         robot.orientation(:north)
 
-        robot.turn_right
+        right
 
         expect(robot.direction).to eq(:east)
       end
@@ -46,7 +48,7 @@ describe 'Robot' do
       it 'south -> west' do
         robot.orientation(:south)
 
-        robot.turn_right
+        right
 
         expect(robot.direction).to eq(:west)
       end
@@ -54,7 +56,7 @@ describe 'Robot' do
       it 'west -> north' do
         robot.orientation(:west)
 
-        robot.turn_right
+        right
 
         expect(robot.direction).to eq(:north)
       end
@@ -62,17 +64,19 @@ describe 'Robot' do
       it 'east -> south' do
         robot.orientation(:east)
 
-        robot.turn_right
+        right
 
         expect(robot.direction).to eq(:south)
       end
     end
 
-    context 'Left side' do
+    context 'Turn left' do
+      let(:left) { robot.turn_left }
+
       it 'south -> east' do
         robot.orientation(:south)
 
-        robot.turn_left
+        left
 
         expect(robot.direction).to eq(:east)
       end
@@ -80,7 +84,7 @@ describe 'Robot' do
       it 'north -> west' do
         robot.orientation(:north)
 
-        robot.turn_left
+        left
 
         expect(robot.direction).to eq(:west)
       end
@@ -88,7 +92,7 @@ describe 'Robot' do
       it 'west -> south' do
         robot.orientation(:west)
 
-        robot.turn_left
+        left
 
         expect(robot.direction).to eq(:south)
       end
@@ -96,7 +100,7 @@ describe 'Robot' do
       it 'west -> south' do
         robot.orientation(:west)
 
-        robot.turn_left
+        left
 
         expect(robot.direction).to eq(:south)
       end
