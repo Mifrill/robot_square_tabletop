@@ -6,6 +6,20 @@
 [![Inline docs](http://inch-ci.org/github/Mifrill/robot_square_tabletop.svg?branch=master)](http://inch-ci.org/github/Mifrill/robot_square_tabletop)
 
 # Toy Robot Simulator
+
+## Running
+```
+    sudo chmod 777 bin/start
+    
+    #input command by hand
+    bin/start 
+    
+      or
+      
+    #command list from file    
+    bin/start file test.example.json
+```
+
 ### Description:
 The application is a simulation of a toy robot moving on a square tabletop, of dimensions 5
 units x 5 units. There are no other obstructions on the table surface. The robot is free to roam around the surface of the table, but must be prevented from falling to destruction. Any movement that would result in the robot falling from the table must be prevented, however further valid movement commands must still be allowed.
@@ -70,16 +84,3 @@ It is not required to provide any graphical output showing the movement of the t
 * Think about the problem and be ensure you are able to discuss your solution
 * We are going to ask you to pair with us and make some simple changes to your robot solution
 * Be wary of over-complicating things, but don't be afraid to show us your skills ;)
-
-## Running
-```
-    sudo chmod 777 bin/start
-    
-    #input command by hand
-    bin/start 
-    
-      or
-      
-    #command list from file    
-    bin/start file example.json
-```

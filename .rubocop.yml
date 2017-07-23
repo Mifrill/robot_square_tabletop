@@ -1,17 +1,12 @@
-AllCops:
-  Excludes:
-    - config/**
 Documentation:
   Enabled: false
 Style/FrozenStringLiteralComment:
   Enabled: false
-Style/SymbolArray:
-  EnforcedStyle: brackets
 Metrics/LineLength:
   Max: 120
 Metrics/MethodLength:
-  Max: 25
+  Max: 15
 Metrics/AbcSize:
   Enabled: false
 Metrics/BlockLength:
-  Max: 100
+  Max: 95

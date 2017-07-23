@@ -3,7 +3,7 @@ require 'json'
 
 module Toy
   def config
-    JSON.parse(File.read './settings.json')
+    JSON.parse(File.read('./settings.json'))
   end
 
   def execute_from_file(filename)
