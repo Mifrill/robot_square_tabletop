@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/Mifrill/robot_square_tabletop.svg?branch=master)](https://travis-ci.org/Mifrill/robot_square_tabletop)
 [![Build status](https://ci.appveyor.com/api/projects/status/bn0sripeuppeadt7?svg=true)](https://ci.appveyor.com/project/Mifrill/robot-square-tabletop)
+[![CircleCI](https://circleci.com/gh/Mifrill/robot_square_tabletop.svg?style=svg)](https://circleci.com/gh/Mifrill/robot_square_tabletop)
 [ ![Codeship Status for Mifrill/robot_square_tabletop](https://app.codeship.com/projects/e0bfd6f0-6675-0135-accc-6e4d1ccb1394/status?branch=master)](https://app.codeship.com/projects/240930)
 [![Quality](http://img.shields.io/codeclimate/github/Mifrill/robot_square_tabletop.svg)](https://codeclimate.com/github/Mifrill/robot_square_tabletop)
 [![Coverage Status](https://coveralls.io/repos/github/Mifrill/robot_square_tabletop/badge.svg?branch=master)](https://coveralls.io/github/Mifrill/robot_square_tabletop?branch=master)
