@@ -7,6 +7,7 @@
 [![Coverage Status](https://img.shields.io/codeclimate/coverage/github/Mifrill/robot_square_tabletop.svg)](https://codeclimate.com/github/mifrill/robot_square_tabletop)
 [![codecov](https://codecov.io/gh/Mifrill/robot_square_tabletop/branch/master/graph/badge.svg)](https://codecov.io/gh/Mifrill/robot_square_tabletop)
 [![Inline docs](http://inch-ci.org/github/Mifrill/robot_square_tabletop.svg?branch=master)](http://inch-ci.org/github/Mifrill/robot_square_tabletop)
+[![Code Triagers Badge](https://www.codetriage.com/mifrill/robot_square_tabletop/badges/users.svg)](https://www.codetriage.com/mifrill/robot_square_tabletop)
 
 # Toy Robot Simulator
 
