@@ -18,7 +18,6 @@ module Toy
           output = simulator.execute(command)
           puts output if output
         end
-        simulator = Toy::Simulator.new
       end
     end
 
