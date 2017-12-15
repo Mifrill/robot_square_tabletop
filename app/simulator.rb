@@ -40,7 +40,8 @@ module Toy
     def move(_args = nil)
       return PLACE_FAILED unless @table.placed?
       position = @table.position
-      step = @robot.step
+      step     = @robot.step
+
       @table.place(position[:x] + step[:x], position[:y] + step[:y]) ? SYSTEM_MESSAGES['move_success'] : SYSTEM_MESSAGES['move_failed']
     end
 
@@ -56,7 +57,7 @@ module Toy
 
     def report(_args = nil)
       return PLACE_FAILED unless @table.placed?
-      position = @table.position
+      position  = @table.position
       direction = @robot.direction
 
       "#{position[:x]},#{position[:y]},#{direction.to_s.upcase}"
