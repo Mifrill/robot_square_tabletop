@@ -25,7 +25,7 @@ module Toy
     private
 
     def truthy_command(command)
-      Toy.config['commands'].include?(command) ? (self.command = command) : nil
+      self.command = command if Toy.config['commands'].include?(command)
     end
 
     def place(args)

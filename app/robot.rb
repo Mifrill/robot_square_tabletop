@@ -3,7 +3,7 @@ module Toy
     attr_accessor :direction
 
     def orientation(direction)
-      Toy.config['facing'].collect { |x| x.downcase.to_sym }.include?(direction) ? (self.direction = direction) : nil
+      self.direction = direction if Toy.config['facing'].find { |face| face.downcase.to_sym == direction }
     end
 
     def turn_left
