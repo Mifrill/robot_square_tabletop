@@ -15,16 +15,11 @@ module Toy
     def execute(input)
       return if input.strip.empty?
 
-      input = input.strip.split(/\s+/)
+      input   = input.strip.split(/\s+/)
       command = input.first
-      args = input.last
+      args    = input.last
 
-      case command
-      when truthy_command(command)
-        send(command.downcase, args)
-      else
-        "#{SYSTEM_MESSAGES['invalid_command']} #{command}"
-      end
+      truthy_command(command) ? send(command.downcase, args) : "#{SYSTEM_MESSAGES['invalid_command']} #{command}"
     end
 
     private
