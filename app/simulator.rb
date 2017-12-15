@@ -29,16 +29,12 @@ module Toy
     end
 
     def place(args)
-      args = args.split(',')
-      x = args[0].to_i
-      y = args[1].to_i
-      begin
-        direction = args[2].downcase.to_sym
-        raise unless @robot.orientation(direction) && @table.place(x, y)
-        SYSTEM_MESSAGES['place_success']
-      rescue
-        SYSTEM_MESSAGES['invalid_arguments']
-      end
+      args      = args.split(/,/)
+      x         = args[0].to_i
+      y         = args[1].to_i
+      direction = args[2]&.downcase&.to_sym
+
+      @robot.orientation(direction) && @table.place(x, y) ? SYSTEM_MESSAGES['place_success'] : SYSTEM_MESSAGES['invalid_arguments']
     end
 
     def move(_args = nil)
