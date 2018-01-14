@@ -4,11 +4,20 @@ notifications:
   email: false
 language: ruby
 rvm:
-  - 2.4.2
+  - 2.5.0
+env:
+  global:
+   - CC_TEST_REPORTER_ID=56870920cf4817ced14b907140d61cbe42941a42781667d0a62f139275e86efa
+  matrix:
+   - RAILS_ENV=test
 env:
   - ROBOT_ENV=test
 cache:
   bundler: true
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 script:
   - bundle exec rspec
-  - CODECLIMATE_REPO_TOKEN=56870920cf4817ced14b907140d61cbe42941a42781667d0a62f139275e86efa bundle exec codeclimate-test-reporter
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

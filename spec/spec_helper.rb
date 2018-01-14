@@ -4,7 +4,6 @@ if ENV['ROBOT_ENV'] == 'test'
   SimpleCov.refuse_coverage_drop
   puts 'CodeCoverage Enabled'
   if ENV['CI']
-    require 'codeclimate-test-reporter'
     require 'codecov'
     SimpleCov.start
     SimpleCov.formatter = SimpleCov::Formatter::Codecov
