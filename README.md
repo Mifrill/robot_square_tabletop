@@ -9,6 +9,7 @@
 [![Inline docs](http://inch-ci.org/github/Mifrill/robot_square_tabletop.svg?branch=master)](http://inch-ci.org/github/Mifrill/robot_square_tabletop)
 [![Code Triagers Badge](https://www.codetriage.com/mifrill/robot_square_tabletop/badges/users.svg)](https://www.codetriage.com/mifrill/robot_square_tabletop)
 [![Dependency Status](https://dependencyci.com/github/Mifrill/robot_square_tabletop/badge)](https://dependencyci.com/github/Mifrill/robot_square_tabletop)
+[![BCH compliance](https://bettercodehub.com/edge/badge/Mifrill/robot_square_tabletop?branch=master)](https://bettercodehub.com/)
 
 # Toy Robot Simulator
 
