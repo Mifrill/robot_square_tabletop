@@ -7,4 +7,8 @@ group :development, :test do
   # Generate code coverate reports
   gem 'codecov', '~> 0.1.10', require: false
   gem 'simplecov', '~> 0.15.1', require: false
+  gem 'rubocop', require: false
+  gem 'guard'
+  gem 'guard-rubocop'
+  gem 'guard-bundler'
 end
