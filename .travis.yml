@@ -4,7 +4,7 @@ notifications:
   email: false
 language: ruby
 rvm:
-  - 2.5.0
+  - 2.5.1
 env:
   global:
    - CC_TEST_REPORTER_ID=56870920cf4817ced14b907140d61cbe42941a42781667d0a62f139275e86efa
