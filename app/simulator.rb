@@ -8,7 +8,7 @@ module Toy
 
     extend Forwardable
 
-    delegate %i(turn_left turn_right direction step) => :@robot
+    delegate %i(turn_left turn_right direction step orientation) => :@robot
     delegate %i(placed? position) => :@table
 
     attr_accessor :command
@@ -41,7 +41,7 @@ module Toy
       y         = args[1].to_i
       direction = args[2]&.downcase&.to_sym
 
-      @robot.orientation(direction) && @table.place(x, y) ? SYSTEM_MESSAGES['place_success'] : SYSTEM_MESSAGES['invalid_arguments']
+      orientation(direction) && @table.place(x, y) ? SYSTEM_MESSAGES['place_success'] : SYSTEM_MESSAGES['invalid_arguments']
     end
 
     def move(_args = nil)
