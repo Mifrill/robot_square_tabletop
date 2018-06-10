@@ -30,6 +30,7 @@
     "MOVE",
     "MOVE",
     "PLACE 1,2,NORTH",
-    " REPORT"
+    " REPORT",
+    "   PLACE 3 , 4,  WEST "
   ]
 }

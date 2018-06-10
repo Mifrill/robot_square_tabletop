@@ -18,6 +18,11 @@ describe Toy::Simulator do
       expect(simulator.execute('REPORT')).to eq('0,0,NORTH')
     end
 
+    it 'ignore spaces, example: "   PLACE 3 ,   4   ,  WEST "' do
+      command = '   PLACE 3 , 4,  WEST '
+      expect(simulator.execute(command)).to eq('Robot has been placed')
+    end
+
     it 'Robot is not placed if invalid arguments' do
       expect(simulator.execute('PLACE (0,0,west)')).to eq('Invalid arguments')
     end
@@ -84,6 +89,13 @@ describe Toy::Simulator do
       Toy.config['commands'].drop(1).each do |command|
         expect(simulator.execute(command)).to  eq(Toy.config['system_messages']['place_failed'])
       end
+    end
+
+    it 'Robot say: "already placed" when command place for already placed robot' do
+      simulator.execute('PLACE 0,0,WEST')
+
+      expect(table.placed?).to be_truthy
+      expect(simulator.execute('PLACE 0,0,WEST')).to  eq(Toy.config['system_messages']['already_placed'])
     end
   end
 end

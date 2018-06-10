@@ -1,18 +1,19 @@
+require 'forwardable'
 require './config/application'
 require_relative 'table'
 require_relative 'robot'
 
 module Toy
   class Simulator
-    require 'forwardable'
-
     extend Forwardable
+
+    PLACE_FAILED   = SYSTEM_MESSAGES['place_failed']
+    ALREADY_PLACED = SYSTEM_MESSAGES['already_placed']
+
+    attr_accessor :command
 
     delegate %i(turn_left turn_right direction step orientation) => :@robot
     delegate %i(placed? position) => :@table
-
-    attr_accessor :command
-    PLACE_FAILED = SYSTEM_MESSAGES['place_failed']
 
     def initialize
       @table = Toy::Table::Square.new
@@ -22,21 +23,23 @@ module Toy
     def execute(input)
       return if input.strip.empty?
 
-      input   = input.strip.split(/\s+/)
-      command = input.first
-      args    = input.last
+      command, *args = input.gsub(/\s+/, ' ')
+                    .gsub(/(?<=\d)\s+/, "")
+                    .strip.split(/\s+/)
 
       truthy_command(command) ? send(command.downcase, args) : "#{SYSTEM_MESSAGES['invalid_command']} #{command}"
     end
 
-    private
+    protected
 
     def truthy_command(command)
       self.command = command if Toy.config['commands'].include?(command)
     end
 
     def place(args)
-      args      = args.split(/,/)
+      return ALREADY_PLACED if placed?
+
+      args      = args.join.split(/,/)
       x         = args[0].to_i
       y         = args[1].to_i
       direction = args[2]&.downcase&.to_sym
