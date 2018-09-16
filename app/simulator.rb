@@ -30,7 +30,11 @@ module Toy
              .strip.split(/\s+/)
       end
 
-      truthy_command(command) ? send(command.downcase, args) : "#{SYSTEM_MESSAGES['invalid_command']} #{command}"
+      if truthy_command(command)
+        send(command.downcase, args)
+      else
+        "#{SYSTEM_MESSAGES['invalid_command']} #{command}"
+      end
     end
 
     protected
