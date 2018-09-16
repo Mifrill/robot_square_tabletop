@@ -1,5 +1,7 @@
 module Toy
   class Robot
+    DIRECTIONS = %i(north west south east).freeze
+
     attr_reader :config, :facing, :shift_step
     attr_accessor :direction
 
@@ -18,13 +20,13 @@ module Toy
 
     def turn_left
       self.direction = begin
-        { north: :west, west: :south, south: :east, east: :north }[direction]
+        DIRECTIONS[DIRECTIONS.index(direction) + 1]
       end
     end
 
     def turn_right
       self.direction = begin
-        { north: :east, west: :north, south: :west, east: :south }[direction]
+        DIRECTIONS[DIRECTIONS.index(direction) - 1]
       end
     end
 
