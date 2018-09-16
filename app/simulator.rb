@@ -54,7 +54,7 @@ module Toy
       end
     end
 
-    def move(_args = nil)
+    def move(*)
       return PLACE_FAILED unless placed?
 
       success_move = begin
@@ -71,19 +71,19 @@ module Toy
       end
     end
 
-    def left(_args = nil)
+    def left(*)
       return PLACE_FAILED unless placed?
 
       turn_left
     end
 
-    def right(_args = nil)
+    def right(*)
       return PLACE_FAILED unless placed?
 
       turn_right
     end
 
-    def report(_args = nil)
+    def report(*)
       return PLACE_FAILED unless placed?
 
       "#{position[:x]},#{position[:y]},#{direction.to_s.upcase}"
