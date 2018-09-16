@@ -1,6 +1,8 @@
 module Toy
   class Table
     class Square < Table
+      attr_reader :limit
+
       def initialize
         @limit = Toy.config['units'].to_f - 1
       end
@@ -8,7 +10,7 @@ module Toy
       private
 
       def valid_coordinates?(x, y)
-        x >= 0 && x <= @limit && y >= 0 && y <= @limit
+        x >= 0 && x <= limit && y >= 0 && y <= limit
       end
     end
 
