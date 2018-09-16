@@ -36,9 +36,7 @@ module Toy
     end
   end
 
-  module_function :config
-  module_function :execute_from_file
-  module_function :execute_by_hand
+  module_function :config, :execute_from_file, :execute_by_hand
 
   SYSTEM_MESSAGES = Toy.config['system_messages']
 end
