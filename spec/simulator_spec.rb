@@ -31,7 +31,7 @@ describe Toy::Simulator do
   describe 'MOVE' do
     describe 'Movement within the table' do
       it 'use a movement step from the robot and applies it to the table' do
-        robot.orientation(:north)
+        robot.direction = :north
         table.place(0, 0)
 
         expect(simulator.execute('MOVE')).to eq('Movement implemented')
@@ -40,7 +40,7 @@ describe Toy::Simulator do
 
     describe 'Off-site movement' do
       it 'does not move the robot off the table' do
-        robot.orientation(:south)
+        robot.direction = :south
         table.place(0, 0)
 
         expect(simulator.execute('MOVE')).to eq('out of table')
@@ -51,7 +51,7 @@ describe Toy::Simulator do
 
   describe 'LEFT/RIGHT' do
     before do
-      robot.orientation(:north)
+      robot.direction = :north
       table.place(0, 0)
     end
 

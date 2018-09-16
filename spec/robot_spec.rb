@@ -3,27 +3,32 @@ require 'spec_helper'
 describe Toy::Robot do
   let(:robot) { Toy::Robot.new }
 
-  describe 'orientation' do
+  describe 'direction=' do
     context 'allows direction' do
       it 'NORTH' do
-        expect(robot.orientation(:north)).to be(:north)
+        robot.direction = :north
+        expect(robot.direction).to be(:north)
       end
 
       it 'SOUTH' do
-        expect(robot.orientation(:south)).to be(:south)
+        robot.direction = :south
+        expect(robot.direction).to be(:south)
       end
 
       it 'WEST' do
-        expect(robot.orientation(:west)).to be(:west)
+        robot.direction = :west
+        expect(robot.direction).to be(:west)
       end
 
       it 'EAST' do
-        expect(robot.orientation(:east)).to be(:east)
+        robot.direction = :east
+        expect(robot.direction).to be(:east)
       end
     end
 
     it 'disallows mistaken direction' do
-      expect(robot.orientation(:some_direction)).to be_nil
+      robot.direction = :some_direction
+      expect(robot.direction).to be_nil
     end
   end
 
@@ -38,7 +43,7 @@ describe Toy::Robot do
       let(:right) { robot.turn_right }
 
       it 'north -> east' do
-        robot.orientation(:north)
+        robot.direction = :north
 
         right
 
@@ -46,7 +51,7 @@ describe Toy::Robot do
       end
 
       it 'south -> west' do
-        robot.orientation(:south)
+        robot.direction = :south
 
         right
 
@@ -54,7 +59,7 @@ describe Toy::Robot do
       end
 
       it 'west -> north' do
-        robot.orientation(:west)
+        robot.direction = :west
 
         right
 
@@ -62,7 +67,7 @@ describe Toy::Robot do
       end
 
       it 'east -> south' do
-        robot.orientation(:east)
+        robot.direction = :east
 
         right
 
@@ -74,7 +79,7 @@ describe Toy::Robot do
       let(:left) { robot.turn_left }
 
       it 'south -> east' do
-        robot.orientation(:south)
+        robot.direction = :south
 
         left
 
@@ -82,7 +87,7 @@ describe Toy::Robot do
       end
 
       it 'north -> west' do
-        robot.orientation(:north)
+        robot.direction = :north
 
         left
 
@@ -90,7 +95,7 @@ describe Toy::Robot do
       end
 
       it 'west -> south' do
-        robot.orientation(:west)
+        robot.direction = :west
 
         left
 
@@ -98,7 +103,7 @@ describe Toy::Robot do
       end
 
       it 'west -> south' do
-        robot.orientation(:west)
+        robot.direction = :west
 
         left
 
@@ -111,31 +116,31 @@ describe Toy::Robot do
     let(:step) { Toy.config['step'].to_f }
 
     it 'facing north -> moves up' do
-      robot.orientation(:north)
+      robot.direction = :north
 
       expect(robot.step).to eq(x: 0, y: step)
     end
 
     it 'facing south -> moves down' do
-      robot.orientation(:south)
+      robot.direction = :south
 
       expect(robot.step).to eq(x: 0, y: -step)
     end
 
     it 'facing west -> moves left' do
-      robot.orientation(:west)
+      robot.direction = :west
 
       expect(robot.step).to eq(x: -step, y: 0)
     end
 
     it 'facing east -> moves right' do
-      robot.orientation(:east)
+      robot.direction = :east
 
       expect(robot.step).to eq(x: 1, y: 0)
     end
 
     it 'Raise error when unknown direction' do
-      robot.orientation(:some_direction)
+      robot.direction = :some_direction
 
       expect { robot.step }.to raise_error(RuntimeError, Toy.config['system_messages']['unknown_direction'])
     end
