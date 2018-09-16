@@ -2,13 +2,15 @@ require 'rubygems'
 require 'json'
 
 module Toy
+  def self.simulator
+    @simulator ||= Toy::Simulator.new
+  end
+
   def config
     JSON.parse(File.read('./settings.json'))
   end
 
   def execute_from_file(filename)
-    simulator = Toy::Simulator.new
-
     puts "#{Toy.config['system_messages']['file']} #{filename}"
     inputs = JSON.parse(File.read(filename))
 
@@ -26,8 +28,6 @@ module Toy
   end
 
   def execute_by_hand
-    simulator = Toy::Simulator.new
-
     command = STDIN.gets
     while command
       output = simulator.execute(command)
