@@ -13,7 +13,7 @@ module Toy
     attr_accessor :command
     attr_reader :robot, :table
 
-    delegate %i[turn_left turn_right direction step direction=] => :@robot
+    delegate %i[turn_left turn_right direction step] => :@robot
     delegate %i[placed? position] => :@table
 
     def initialize
