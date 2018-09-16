@@ -43,7 +43,7 @@ module Toy
       return ALREADY_PLACED if placed?
 
       args = args.join.split(/,/)
-      x, y = [args[0], args[1]].map(&:to_i)
+      x, y = args.first(2).map(&:to_i)
 
       robot.direction = args[2]&.downcase&.to_sym
 
