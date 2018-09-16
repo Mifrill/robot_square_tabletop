@@ -11,21 +11,24 @@ module Toy
     ALREADY_PLACED = SYSTEM_MESSAGES['already_placed']
 
     attr_accessor :command
+    attr_reader :robot, :table
 
-    delegate %i[turn_left turn_right direction step orientation] => :@robot
+    delegate %i[turn_left turn_right direction step direction=] => :@robot
     delegate %i[placed? position] => :@table
 
     def initialize
-      @table = Toy::Table::Square.new
-      @robot = Toy::Robot.new
+      @table ||= Toy::Table::Square.new
+      @robot ||= Toy::Robot.new
     end
 
     def execute(input)
       return if input.strip.empty?
 
-      command, *args = input.gsub(/\s+/, ' ')
-                            .gsub(/(?<=\d)\s+/, '')
-                            .strip.split(/\s+/)
+      command, *args = begin
+        input.gsub(/\s+/, ' ')
+             .gsub(/(?<=\d)\s+/, '')
+             .strip.split(/\s+/)
+      end
 
       truthy_command(command) ? send(command.downcase, args) : "#{SYSTEM_MESSAGES['invalid_command']} #{command}"
     end
@@ -39,12 +42,16 @@ module Toy
     def place(args)
       return ALREADY_PLACED if placed?
 
-      args      = args.join.split(/,/)
-      x         = args[0].to_i
-      y         = args[1].to_i
-      direction = args[2]&.downcase&.to_sym
+      args = args.join.split(/,/)
+      x, y = [args[0], args[1]].map(&:to_i)
 
-      orientation(direction) && @table.place(x, y) ? SYSTEM_MESSAGES['place_success'] : SYSTEM_MESSAGES['invalid_arguments']
+      robot.direction = args[2]&.downcase&.to_sym
+
+      if direction && @table.place(x, y)
+        SYSTEM_MESSAGES['place_success']
+      else
+        SYSTEM_MESSAGES['invalid_arguments']
+      end
     end
 
     def move(_args = nil)
