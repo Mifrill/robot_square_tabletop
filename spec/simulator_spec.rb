@@ -95,7 +95,7 @@ describe Toy::Simulator do
       simulator.execute('PLACE 0,0,WEST')
 
       expect(table.placed?).to be_truthy
-      expect(simulator.execute('PLACE 0,0,WEST')).to  eq(Toy.config['system_messages']['already_placed'])
+      expect(simulator.execute('PLACE 0,0,WEST')).to eq(Toy.config['system_messages']['already_placed'])
     end
   end
 end

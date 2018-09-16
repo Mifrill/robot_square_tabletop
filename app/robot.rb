@@ -9,9 +9,7 @@ module Toy
 
     def orientation(direction)
       self.direction = begin
-        if facing.find { |face| face.downcase.to_sym == direction }
-          direction
-        end
+        direction if facing.find { |face| face.downcase.to_sym == direction }
       end
     end
 

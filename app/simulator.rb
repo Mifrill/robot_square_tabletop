@@ -12,8 +12,8 @@ module Toy
 
     attr_accessor :command
 
-    delegate %i(turn_left turn_right direction step orientation) => :@robot
-    delegate %i(placed? position) => :@table
+    delegate %i[turn_left turn_right direction step orientation] => :@robot
+    delegate %i[placed? position] => :@table
 
     def initialize
       @table = Toy::Table::Square.new
@@ -24,8 +24,8 @@ module Toy
       return if input.strip.empty?
 
       command, *args = input.gsub(/\s+/, ' ')
-                    .gsub(/(?<=\d)\s+/, "")
-                    .strip.split(/\s+/)
+                            .gsub(/(?<=\d)\s+/, '')
+                            .strip.split(/\s+/)
 
       truthy_command(command) ? send(command.downcase, args) : "#{SYSTEM_MESSAGES['invalid_command']} #{command}"
     end
@@ -49,21 +49,25 @@ module Toy
 
     def move(_args = nil)
       return PLACE_FAILED unless placed?
+
       @table.place(position[:x] + step[:x], position[:y] + step[:y]) ? SYSTEM_MESSAGES['move_success'] : SYSTEM_MESSAGES['move_failed']
     end
 
     def left(_args = nil)
       return PLACE_FAILED unless placed?
+
       turn_left
     end
 
     def right(_args = nil)
       return PLACE_FAILED unless placed?
+
       turn_right
     end
 
     def report(_args = nil)
       return PLACE_FAILED unless placed?
+
       "#{position[:x]},#{position[:y]},#{direction.to_s.upcase}"
     end
   end
