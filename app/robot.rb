@@ -1,10 +1,13 @@
 module Toy
   class Robot
-    attr_reader :facing
+    attr_reader :config, :facing, :shift_step
     attr_accessor :direction
 
     def initialize
-      @facing = Toy.config['facing']
+      @config     ||= Toy.config
+
+      @facing     ||= config['facing']
+      @shift_step ||= config['step'].to_i
     end
 
     def orientation(direction)
@@ -26,16 +29,15 @@ module Toy
     end
 
     def step
-      step = Toy.config['step'].to_i
       case direction
       when :north
-        { x: 0, y: step }
+        { x: 0, y: shift_step }
       when :south
-        { x: 0, y: -step }
+        { x: 0, y: -shift_step }
       when :west
-        { x: -step, y: 0 }
+        { x: -shift_step, y: 0 }
       when :east
-        { x: step, y: 0 }
+        { x: shift_step, y: 0 }
       else
         raise SYSTEM_MESSAGES['unknown_direction']
       end

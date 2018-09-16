@@ -50,7 +50,18 @@ module Toy
     def move(_args = nil)
       return PLACE_FAILED unless placed?
 
-      @table.place(position[:x] + step[:x], position[:y] + step[:y]) ? SYSTEM_MESSAGES['move_success'] : SYSTEM_MESSAGES['move_failed']
+      success_move = begin
+        @table.place(
+          position[:x] + step[:x],
+          position[:y] + step[:y]
+        )
+      end
+
+      if success_move
+        SYSTEM_MESSAGES['move_success']
+      else
+        SYSTEM_MESSAGES['move_failed']
+      end
     end
 
     def left(_args = nil)
