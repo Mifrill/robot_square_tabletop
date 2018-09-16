@@ -7,16 +7,19 @@ module Toy
 
     def initialize
       @config     ||= Toy.config
-      @facing     ||= config['facing']
       @shift_step ||= config['step'].to_i
+
+      @facing     ||= begin
+        config['facing'].map do |face|
+          face.downcase.to_sym
+        end
+      end
     end
 
     def direction=(direction)
       # it return assignment value for the invalid direction
       # coz we cant chain assignment like methods (surprise for me)
-      if facing.find { |face| face.downcase.to_sym == direction }
-        @direction = direction
-      end
+      @direction = direction if facing.include?(direction)
     end
 
     def turn_left
