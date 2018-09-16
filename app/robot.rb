@@ -3,7 +3,7 @@ module Toy
     DIRECTIONS = %i[north west south east].freeze
 
     attr_reader :config, :facing, :shift_step
-    attr_accessor :direction
+    attr_reader :direction
 
     def initialize
       @config     ||= Toy.config
@@ -12,8 +12,11 @@ module Toy
     end
 
     def direction=(direction)
-      # it return assignment value, coz we can’t chain assignment-like methods
-      @direction = direction if facing.find { |face| face.downcase.to_sym == direction }
+      # it return assignment value for the invalid direction
+      # coz we cant chain assignment like methods (surprise for me)
+      if facing.find { |face| face.downcase.to_sym == direction }
+        @direction = direction
+      end
     end
 
     def turn_left
