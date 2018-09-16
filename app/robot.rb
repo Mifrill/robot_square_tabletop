@@ -1,17 +1,30 @@
 module Toy
   class Robot
+    attr_reader :facing
     attr_accessor :direction
 
+    def initialize
+      @facing = Toy.config['facing']
+    end
+
     def orientation(direction)
-      self.direction = direction if Toy.config['facing'].find { |face| face.downcase.to_sym == direction }
+      self.direction = begin
+        if facing.find { |face| face.downcase.to_sym == direction }
+          direction
+        end
+      end
     end
 
     def turn_left
-      self.direction = { north: :west, west: :south, south: :east, east: :north }[direction]
+      self.direction = begin
+        { north: :west, west: :south, south: :east, east: :north }[direction]
+      end
     end
 
     def turn_right
-      self.direction = { north: :east, west: :north, south: :west, east: :south }[direction]
+      self.direction = begin
+        { north: :east, west: :north, south: :west, east: :south }[direction]
+      end
     end
 
     def step
