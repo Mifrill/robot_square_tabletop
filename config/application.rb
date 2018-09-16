@@ -7,11 +7,11 @@ module Toy
   end
 
   def config
-    JSON.parse(File.read('./settings.json'))
+    @config ||= JSON.parse(File.read('./settings.json'))
   end
 
   def execute_from_file(filename)
-    puts "#{Toy.config['system_messages']['file']} #{filename}"
+    puts "#{config['system_messages']['file']} #{filename}"
     inputs = JSON.parse(File.read(filename))
 
     inputs.each do |input|
@@ -23,7 +23,7 @@ module Toy
       end
     end
 
-    puts success = Toy.config['system_messages']['done']
+    puts success = config['system_messages']['done']
     success
   end
 
@@ -38,5 +38,5 @@ module Toy
 
   module_function :config, :execute_from_file, :execute_by_hand
 
-  SYSTEM_MESSAGES = Toy.config['system_messages']
+  SYSTEM_MESSAGES = config['system_messages']
 end
