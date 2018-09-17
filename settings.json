@@ -8,9 +8,9 @@
   ],
   "directions": [
     "NORTH",
+    "WEST",
     "SOUTH",
-    "EAST",
-    "WEST"
+    "EAST"
   ],
   "units": "5",
   "step":  "1",

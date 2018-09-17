@@ -1,7 +1,5 @@
 module Toy
   class Robot
-    DIRECTIONS = %i[north west south east].freeze
-
     attr_reader :config, :directions, :shift_step
     attr_reader :direction
 
@@ -9,7 +7,7 @@ module Toy
       @config     ||= Toy.config
       @shift_step ||= config['step'].to_i
 
-      @directions     ||= begin
+      @directions ||= begin
         config['directions'].map do |direction|
           direction.downcase.to_sym
         end
@@ -24,13 +22,13 @@ module Toy
 
     def turn_left
       self.direction = begin
-        DIRECTIONS[DIRECTIONS.index(direction) + 1]
+        directions[directions.index(direction) + 1]
       end
     end
 
     def turn_right
       self.direction = begin
-        DIRECTIONS[DIRECTIONS.index(direction) - 1]
+        directions[directions.index(direction) - 1]
       end
     end
 
