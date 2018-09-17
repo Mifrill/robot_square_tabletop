@@ -1,7 +1,6 @@
 module Toy
   class Robot
-    attr_reader :config, :directions, :shift_step
-    attr_reader :direction
+    attr_reader :config, :direction, :directions, :shift_step
 
     def initialize
       @config     ||= Toy.config
