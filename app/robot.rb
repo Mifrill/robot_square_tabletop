@@ -2,16 +2,16 @@ module Toy
   class Robot
     DIRECTIONS = %i[north west south east].freeze
 
-    attr_reader :config, :facing, :shift_step
+    attr_reader :config, :directions, :shift_step
     attr_reader :direction
 
     def initialize
       @config     ||= Toy.config
       @shift_step ||= config['step'].to_i
 
-      @facing     ||= begin
-        config['facing'].map do |face|
-          face.downcase.to_sym
+      @directions     ||= begin
+        config['directions'].map do |direction|
+          direction.downcase.to_sym
         end
       end
     end
@@ -19,7 +19,7 @@ module Toy
     def direction=(direction)
       # it return assignment value for the invalid direction
       # coz we cant chain assignment like methods (surprise for me)
-      @direction = direction if facing.include?(direction)
+      @direction = direction if directions.include?(direction)
     end
 
     def turn_left

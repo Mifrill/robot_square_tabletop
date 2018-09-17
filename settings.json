@@ -6,25 +6,25 @@
     "RIGHT",
     "REPORT"
   ],
-  "facing": [
+  "directions": [
     "NORTH",
     "SOUTH",
     "EAST",
     "WEST"
   ],
   "units": "5",
-  "step": "1",
+  "step":  "1",
   "system_messages": {
-    "hello": "Hello, i am Toy Robot Simulator",
-    "place_success": "Robot has been placed",
-    "already_placed": "Robot has already placed",
-    "invalid_command": "Invalid command",
+    "hello":             "Hello, i am Toy Robot Simulator",
+    "place_success":     "Robot has been placed",
+    "already_placed":    "Robot has already placed",
+    "invalid_command":   "Invalid command",
     "invalid_arguments": "Invalid arguments",
-    "place_failed": "Robot must be placed",
+    "place_failed":      "Robot must be placed",
     "unknown_direction": "Unknown direction",
-    "done": "Mission complete",
-    "move_success": "Movement implemented",
-    "move_failed": "out of table",
-    "file": "execute commands from file:"
+    "done":              "Mission complete",
+    "move_success":      "Movement implemented",
+    "move_failed":       "out of table",
+    "file":              "execute commands from file:"
   }
 }
