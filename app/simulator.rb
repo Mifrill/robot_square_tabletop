@@ -35,7 +35,16 @@ module Toy
         else
           return PLACE_FAILED unless placed?
 
-          send(command.downcase, args)
+          case command
+          when 'LEFT'
+            left
+          when 'RIGHT'
+            right
+          when 'MOVE'
+            move
+          when 'REPORT'
+            report
+          end
         end
       else
         "#{SYSTEM_MESSAGES['invalid_command']} #{command}"
@@ -57,7 +66,7 @@ module Toy
       end
     end
 
-    def move(*)
+    def move
       success_move = begin
         @table.place(
           position[:x] + step[:x],
@@ -72,15 +81,15 @@ module Toy
       end
     end
 
-    def left(*)
+    def left
       turn_left
     end
 
-    def right(*)
+    def right
       turn_right
     end
 
-    def report(*)
+    def report
       "#{position[:x]},#{position[:y]},#{direction.to_s.upcase}"
     end
 
