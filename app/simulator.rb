@@ -37,9 +37,9 @@ module Toy
 
           case command
           when 'LEFT'
-            left
+            turn_left
           when 'RIGHT'
-            right
+            turn_right
           when 'MOVE'
             move
           when 'REPORT'
@@ -79,14 +79,6 @@ module Toy
       else
         SYSTEM_MESSAGES['move_failed']
       end
-    end
-
-    def left
-      turn_left
-    end
-
-    def right
-      turn_right
     end
 
     def report
