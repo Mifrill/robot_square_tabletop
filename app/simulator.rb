@@ -22,16 +22,24 @@ module Toy
     end
 
     def execute(input)
-      return if input.strip.empty?
-
       command, *args = begin
         input.gsub(/\s+/, ' ')
              .gsub(/(?<=\d)\s+/, '')
              .strip.split(/\s+/)
       end
 
+      return if command.to_s.empty?
+
       if truthy_command(command)
-        send(command.downcase, args)
+        if self.command == 'PLACE'
+          return ALREADY_PLACED if placed?
+
+          place(args)
+        else
+          return PLACE_FAILED unless placed?
+
+          send(self.command.downcase, args)
+        end
       else
         "#{SYSTEM_MESSAGES['invalid_command']} #{command}"
       end
@@ -39,13 +47,7 @@ module Toy
 
     protected
 
-    def truthy_command(command)
-      self.command = command if Toy.config['commands'].include?(command)
-    end
-
     def place(args)
-      return ALREADY_PLACED if placed?
-
       args = args.join.split(/,/)
       x, y = args.first(2).map(&:to_i)
 
@@ -59,8 +61,6 @@ module Toy
     end
 
     def move(*)
-      return PLACE_FAILED unless placed?
-
       success_move = begin
         @table.place(
           position[:x] + step[:x],
@@ -76,21 +76,21 @@ module Toy
     end
 
     def left(*)
-      return PLACE_FAILED unless placed?
-
       turn_left
     end
 
     def right(*)
-      return PLACE_FAILED unless placed?
-
       turn_right
     end
 
     def report(*)
-      return PLACE_FAILED unless placed?
-
       "#{position[:x]},#{position[:y]},#{direction.to_s.upcase}"
+    end
+
+    private
+
+    def truthy_command(command)
+      self.command = command if Toy.config['commands'].include?(command)
     end
   end
 end
