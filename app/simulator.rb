@@ -10,7 +10,6 @@ module Toy
     PLACE_FAILED   = SYSTEM_MESSAGES['place_failed']
     ALREADY_PLACED = SYSTEM_MESSAGES['already_placed']
 
-    attr_accessor :command
     attr_reader :robot, :table
 
     delegate %i[turn_left turn_right direction step] => :@robot
@@ -23,22 +22,20 @@ module Toy
 
     def execute(input)
       command, *args = begin
-        input.gsub(/\s+/, ' ')
-             .gsub(/(?<=\d)\s+/, '')
-             .strip.split(/\s+/)
+        input.gsub(/\s+/, ' ').gsub(/(?<=\d)\s+/, '').strip.split(/\s+/)
       end
 
       return if command.to_s.empty?
 
       if truthy_command(command)
-        if self.command == 'PLACE'
+        if command == 'PLACE'
           return ALREADY_PLACED if placed?
 
           place(args)
         else
           return PLACE_FAILED unless placed?
 
-          send(self.command.downcase, args)
+          send(command.downcase, args)
         end
       else
         "#{SYSTEM_MESSAGES['invalid_command']} #{command}"
@@ -90,7 +87,7 @@ module Toy
     private
 
     def truthy_command(command)
-      self.command = command if Toy.config['commands'].include?(command)
+      command if Toy.config['commands'].include?(command)
     end
   end
 end
