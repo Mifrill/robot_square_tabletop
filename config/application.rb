@@ -2,13 +2,20 @@ require 'rubygems'
 require 'json'
 
 module Toy
-  def self.simulator
-    @simulator ||= Toy::Simulator.new
+  CONFIGURATION   = JSON.parse(File.read('./settings.json')).freeze
+  SYSTEM_MESSAGES = CONFIGURATION['system_messages']
+
+  class << self
+    def simulator
+      @simulator ||= Toy::Simulator.new
+    end
+
+    def config
+      @config ||= CONFIGURATION
+    end
   end
 
-  def config
-    @config ||= JSON.parse(File.read('./settings.json'))
-  end
+  module_function
 
   def execute_from_file(filename)
     puts "#{config['system_messages']['file']} #{filename}"
@@ -35,8 +42,4 @@ module Toy
       command = STDIN.gets
     end
   end
-
-  module_function :config, :execute_from_file, :execute_by_hand
-
-  SYSTEM_MESSAGES = config['system_messages']
 end
