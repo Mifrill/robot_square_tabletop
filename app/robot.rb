@@ -7,8 +7,14 @@ module Toy
       @shift_step ||= config['step'].to_i
 
       @directions ||= begin
-        config['directions'].map do |direction|
+        directions = config['directions'].map do |direction|
           direction.downcase.to_sym
+        end
+
+        if (%i(north west south east) <=> directions).zero?
+          directions
+        else
+          abort "Wrong order of directions"
         end
       end
     end
