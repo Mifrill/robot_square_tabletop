@@ -4,7 +4,8 @@
     "MOVE",
     "LEFT",
     "RIGHT",
-    "REPORT"
+    "REPORT",
+    "EXIT"
   ],
   "directions": [
     "NORTH",
@@ -16,6 +17,7 @@
   "step":  "1",
   "system_messages": {
     "hello":             "Hello, i am Toy Robot Simulator",
+    "bye":               "Bye bye",
     "place_success":     "Robot has been placed",
     "already_placed":    "Robot has already placed",
     "invalid_command":   "Invalid command",

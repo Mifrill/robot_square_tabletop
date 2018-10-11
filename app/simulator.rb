@@ -28,6 +28,8 @@ module Toy
       return if command.to_s.empty?
 
       if truthy_command(command)
+        abort SYSTEM_MESSAGES['bye'] if command == 'EXIT'
+
         if command == 'PLACE'
           return ALREADY_PLACED if placed?
 
