@@ -21,12 +21,10 @@ module Toy
     puts "#{config['system_messages']['file']} #{filename}"
     inputs = JSON.parse(File.read(filename))
 
-    inputs.each do |input|
-      input.drop(1).each do |commands|
-        commands.each do |command|
-          output = simulator.execute(command)
-          puts output if output
-        end
+    inputs.each do |_example, commands|
+      commands.each do |command|
+        output = simulator.execute(command)
+        puts output if output
       end
     end
 
