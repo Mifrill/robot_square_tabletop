@@ -86,7 +86,7 @@ describe Toy::Simulator do
     end
 
     it 'Robot ignore commands until is placed' do
-      Toy.config['commands'].drop(1).each do |command|
+      %w(MOVE LEFT RIGHT REPORT).each do |command|
         expect(simulator.execute(command)).to  eq(Toy.config['system_messages']['place_failed'])
       end
     end
