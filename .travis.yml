@@ -8,10 +8,7 @@ rvm:
 env:
   global:
    - CC_TEST_REPORTER_ID=56870920cf4817ced14b907140d61cbe42941a42781667d0a62f139275e86efa
-  matrix:
-   - RAILS_ENV=test
-env:
-  - ROBOT_ENV=test
+   - ROBOT_ENV=test
 cache:
   bundler: true
 before_script:
